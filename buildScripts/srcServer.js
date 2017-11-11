@@ -8,6 +8,8 @@ const port = 3000;
 const app = express();
 const compiler = webpack(config);
 
+/* eslint-disable no-console */
+
 app.use(require('webpack-dev-middleware')(compiler, {
   noInfo: true,
   publicPath: config.output.publicPath
@@ -19,7 +21,7 @@ app.get('/', function (req, res) {
 
 app.listen(port, function (err) {
   if (err) {
-    window.console.log(err);
+    console.log(err);
   } else {
     open('http://localhost:' + port);
   }
